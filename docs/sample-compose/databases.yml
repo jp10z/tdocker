@@ -1,0 +1,15 @@
+version: "3"
+services:
+
+  postgres-15:
+    image: postgres:15
+    container_name: postgres-15
+    environment:
+      - POSTGRES_USER=$POSTGRES_USER
+      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - /docker_data/postgres-15:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    restart: unless-stopped
